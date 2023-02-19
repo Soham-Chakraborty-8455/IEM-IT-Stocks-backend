@@ -20,4 +20,16 @@ MaterialsRoute.post('/materialsinput', (req, res)=>{
     })
 })
 
+MaterialsRoute.get('/materials', (req, res)=>{
+    Materials.find({}, (err, docs)=>{
+        if(err){
+            console.log(err)
+            res.json({"Status":"Backend Error"})
+        }
+        else{
+            res.json({"Result": docs})
+        }
+    })
+})
+
 module.exports= MaterialsRoute

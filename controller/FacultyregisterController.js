@@ -23,5 +23,17 @@ FacultyRouter.post("/facultyregisterinput", (req, res)=>{
     })
 })
 
+FacultyRouter.get('/facultyregister', (req, res)=>{
+    FacultyRegister.find({}, (err, docs)=>{
+        if(err){
+            console.log(err)
+            res.json({"Status":"Backend Error"})
+        }
+        else{
+            res.json({"Result": docs})
+        }
+    })
+})
+
 module.exports= FacultyRouter
 

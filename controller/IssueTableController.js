@@ -21,4 +21,16 @@ IssueRouter.post('/issuetableinput', (req, res)=>{
     })
 })
 
+IssueRouter.get('/issuetable', (req, res)=>{
+    IssueTable.find({}, (err, docs)=>{
+        if(err){
+            console.log(err)
+            res.json({"Status":"Backend Error"})
+        }
+        else{
+            res.json({"Result": docs})
+        }
+    })
+})
+
 module.exports= IssueRouter

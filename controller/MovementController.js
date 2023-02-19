@@ -21,4 +21,16 @@ MovementsRoute.post('/materialsinput', (req, res)=>{
     })
 })
 
+MovementsRoute.get('/movements', (req, res)=>{
+    Movements.find({}, (err, docs)=>{
+        if(err){
+            console.log(err)
+            res.json({"Status":"Backend Error"})
+        }
+        else{
+            res.json({"Result": docs})
+        }
+    })
+})
+
 module.exports= MovementsRoute

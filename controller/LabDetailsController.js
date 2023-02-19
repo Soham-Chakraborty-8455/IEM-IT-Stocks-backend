@@ -27,4 +27,16 @@ labRoutes.post('/labdetailsinput', (req, res)=>{
     })
 })
 
+labRoutes.get('/labdetails', (req, res)=>{
+    LabDetails.find({IsLive: true}, (err, docs)=>{
+        if(err){
+            console.log(err)
+            res.json({"Status":"Backend Error"})
+        }
+        else{
+            res.json({"Result": docs})
+        }
+    })
+})
+
 module.exports= labRoutes
