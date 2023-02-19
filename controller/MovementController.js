@@ -7,7 +7,7 @@ const MovementsRoute= express.Router()
 MovementsRoute.use(bodyParser.json())
 MovementsRoute.use(cors())
 
-MovementsRoute.post('/materialsinput', (req, res)=>{
+MovementsRoute.post('/movementsinput', (req, res)=>{
     const Particulars= req.body.Particulars
     const To= req.body.To
     const From= req.body.From
