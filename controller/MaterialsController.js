@@ -11,7 +11,8 @@ MaterialsRoute.post('/materialsinput', (req, res)=>{
     const Material= req.body.Material
     const Brand= req.body.Brand
     const Quantity= req.body.Quantity
-    const entry= Materials({Material:Material, Brand:Brand, Quantity:Quantity})
+    const bills= req.body.bills
+    const entry= Materials({Material:Material, Brand:Brand, Quantity:Quantity, bills:bills})
     entry.save().then(request=>{
         res.json({"Status": "Uploaded"})
     }).catch(err=>{

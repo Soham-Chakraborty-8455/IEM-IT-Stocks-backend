@@ -36,6 +36,9 @@ const labdetailsSchema= new schema({
         type: String,
         require: true,
     },
+    bills:{
+        type: String,
+    },
     IsLive:{
         type: Boolean,
         require: true,

@@ -16,6 +16,9 @@ const materialSchema= new schema({
         type: Number,
         require: true
     },
+    bills :{
+        type: String
+    }
 })
 
 module.exports= mongoose.model('Materials', materialSchema)

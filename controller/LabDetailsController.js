@@ -16,8 +16,9 @@ labRoutes.post('/labdetailsinput', (req, res)=>{
     const IPaddress= req.body.IPaddress
     const Warrenty= req.body.Warrenty
     const os= req.body.os
+    const bills= req.body.bills
     const IsLive= req.body.IsLive
-    const entry= new LabDetails({SystemNumber:SystemNumber, datePurchased:datePurchased, Brand:Brand, suppliedby:suppliedby, specifications:specifications, IPaddress:IPaddress, Warrenty:Warrenty, os:os, IsLive:IsLive})
+    const entry= new LabDetails({SystemNumber:SystemNumber, datePurchased:datePurchased, Brand:Brand, suppliedby:suppliedby, specifications:specifications, IPaddress:IPaddress, Warrenty:Warrenty, os:os, bills:bills, IsLive:IsLive})
     LabDetails.updateMany({ SystemNumber: SystemNumber, _id: { $ne: entry._id } }, { $set: { IsLive: false } }).exec().then(() => {
             return entry.save()
         })
