@@ -5,7 +5,7 @@ const schema= mongoose.Schema
 
 const labdetailsSchema= new schema({
     SystemNumber:{
-        type: Number,
+        type: String,
         require: true,
     },
     datePurchased:{
