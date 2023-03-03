@@ -14,7 +14,8 @@ FacultyRouter.post("/facultyregisterinput", (req, res)=>{
     const Lab= req.body.Lab 
     const Remarks= req.body.Remarks 
     const Signature= req.body.Signature 
-    const entry= new FacultyRegister({date:date, ItemIssued:ItemIssued, ItemRecieved:ItemRecieved, Quantity:Quantity,Lab:Lab,Remarks:Remarks, Signature:Signature})
+    const bills= req.body.bills
+    const entry= new FacultyRegister({date:date, ItemIssued:ItemIssued, ItemRecieved:ItemRecieved, Quantity:Quantity,Lab:Lab,Remarks:Remarks, Signature:Signature, bills:bills})
     entry.save().then(request=>{
         res.json({'Status':'Uploaded'})
     }).catch(err=>{

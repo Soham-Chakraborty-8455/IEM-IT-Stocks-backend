@@ -32,6 +32,9 @@ const facultyregisterschema = new schema({
         type: String,
         require: true,
     },
+    bills:{
+        type: String
+    }
 })
 
 module.exports= mongoose.model('FacultyRegister', facultyregisterschema)
