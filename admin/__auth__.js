@@ -4,9 +4,7 @@ const bodyParser = require('body-parser')
 const AuthTable= require('./AuthTable')
 const auth = express.Router()
 auth.use(bodyParser.json())
-auth.use(cors({
-    origin: 'https://iem-it-departmentstocks-apis.onrender.com/login'
-  }))
+auth.use(cors())
 
 auth.post('/login', (req, res)=>{
     const email = req.body.email

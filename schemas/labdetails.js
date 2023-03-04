@@ -42,7 +42,9 @@ const labdetailsSchema= new schema({
         default: true
     },
     bills:{
-        type: String
+        type: String,
+        require: true,
+        default: null
     }
 })
 
