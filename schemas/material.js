@@ -16,7 +16,7 @@ const materialSchema= new schema({
         type: Number,
         require: true
     },
-    bills :{
+    bills:{
         type: String
     }
 })
