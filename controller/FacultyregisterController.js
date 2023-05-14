@@ -1,4 +1,5 @@
 const express = require('express')
+const dotenv = require('dotenv');
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const FacultyRegister= require('../schemas/facultyregister')
@@ -6,7 +7,7 @@ const FacultyRouter = express.Router()
 FacultyRouter.use(bodyParser.json())
 FacultyRouter.use(cors())
 
-FacultyRouter.post("/facultyregisterinput", (req, res)=>{
+FacultyRouter.post(process.env.API_FACULTY, (req, res)=>{
     const date= req.body.date 
     const ItemIssued= req.body.ItemIssued 
     const ItemRecieved= req.body.ItemRecieved 
@@ -24,7 +25,7 @@ FacultyRouter.post("/facultyregisterinput", (req, res)=>{
     })
 })
 
-FacultyRouter.get('/facultyregister', (req, res)=>{
+FacultyRouter.get(process.env.FACULTY_UPDATE, (req, res)=>{
     FacultyRegister.find({}, (err, docs)=>{
         if(err){
             console.log(err)
