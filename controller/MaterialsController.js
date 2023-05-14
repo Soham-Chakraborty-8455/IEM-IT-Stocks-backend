@@ -1,5 +1,6 @@
 const express= require('express')
 const cors= require('cors')
+const env= reuire('dotenv')
 const Materials= require('../schemas/material')
 const bodyParser= require('body-parser')
 const { request } = require('express')
@@ -7,7 +8,7 @@ const MaterialsRoute= express.Router()
 MaterialsRoute.use(bodyParser.json())
 MaterialsRoute.use(cors())
 
-MaterialsRoute.post('/materialsinput', (req, res)=>{
+MaterialsRoute.post(process.env.MATERIALS_INPUT, (req, res)=>{
     const Material= req.body.Material
     const Brand= req.body.Brand
     const Quantity= req.body.Quantity
@@ -21,7 +22,7 @@ MaterialsRoute.post('/materialsinput', (req, res)=>{
     })
 })
 
-MaterialsRoute.get('/materials', (req, res)=>{
+MaterialsRoute.get(process.env.MATERIALS, (req, res)=>{
     Materials.find({}, (err, docs)=>{
         if(err){
             console.log(err)
