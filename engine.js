@@ -2,11 +2,12 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose');
 const app = express()
-const port = 3001
+require('dotenv').config({path: './.env'});
+const port = process.env.PORT
 app.use(cors())
 
 mongoose.set("strictQuery", false)
-mongoose.connect('mongodb+srv://IEM:IT@examinationportal.7tsx0kt.mongodb.net/departmentstocks').then(
+mongoose.connect(process.env.MONGO_URL).then(
   result => {
     app.listen(3005);
     console.log("Connected")
