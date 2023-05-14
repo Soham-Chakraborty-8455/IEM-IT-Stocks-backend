@@ -1,12 +1,14 @@
 const express= require('express')
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config({ path: './.env' });
 
 const database= express()
 
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb+srv://IEM:IT@examinationportal.7tsx0kt.mongodb.net/departmentstocks');
+  await mongoose.connect(process.env.MONGOOSE_CONNECT);
 }
 
 
