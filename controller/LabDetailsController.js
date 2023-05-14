@@ -1,5 +1,6 @@
 const express= require('express')
 const cors= require('cors')
+const env= require("dotenv")
 const bodyParser= require('body-parser')
 const LabDetails= require('../schemas/labdetails')
 const { request } = require('express')
@@ -7,7 +8,7 @@ const labRoutes= express.Router()
 labRoutes.use(bodyParser.json())
 labRoutes.use(cors())
 
-labRoutes.post('/labdetailsinput', (req, res)=>{
+labRoutes.post(process.env.LABINP, (req, res)=>{
     const SystemNumber= req.body.SystemNumber
     const datePurchased= req.body.datePurchased
     const Brand= req.body.Brand
@@ -31,7 +32,7 @@ labRoutes.post('/labdetailsinput', (req, res)=>{
         })
 })
 
-labRoutes.get('/labdetails', (req, res)=>{
+labRoutes.get(process.env.LAB, (req, res)=>{
     LabDetails.find({}, (err, docs)=>{
         if(err){
             console.log(err)
